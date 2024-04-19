@@ -22,13 +22,13 @@ This C++ application calculates optimal routes between cities using Dijkstra's a
 
 2. Run the application with the desired mode and input file:
    ```
-   ./city_routing -info|dist|time [-seed=N] cities.txt
+   ./city_routing -info|dist|time [-seed=N] cities.csv
    ```
    - `-info`: Information mode - outputs data tables
    - `-dist`: Routing mode - finds shortest paths based on distance
    - `-time`: Routing mode - finds shortest paths based on time
    - `-seed=N` (optional): Sets the random seed for selecting cities (default: current time)
-   - `cities.txt`: CSV file containing city data
+   - `cities.csv`: CSV file containing city data
 
 3. In routing mode, enter the source and destination cities when prompted:
    ```
@@ -40,7 +40,7 @@ This C++ application calculates optimal routes between cities using Dijkstra's a
 ## File Structure
 
 - `main.cpp`: Main source code file containing the application logic
-- `cities.txt`: Example CSV file with city data
+- `cities.csv`: Example CSV file with city data
 - `README.md`: This readme file
 
 ## Dependencies
