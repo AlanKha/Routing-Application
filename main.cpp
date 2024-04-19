@@ -508,7 +508,7 @@ void dijkstra_route(string city_from, string city_to, vector<city> &vertex_table
         index_to = index_destinations[0];
     }
 
-    // the rest is pretty much copied from the lecture notes
+    // set up the dijkstra's algorithm
     vector<color_t> vColor;
     vColor.assign(vertex_table.size(), WHITE);
 
@@ -522,13 +522,13 @@ void dijkstra_route(string city_from, string city_to, vector<city> &vertex_table
     vlink[index_from] = index_from;
 
     while (1)
-    {
+    { // loop through the cities and find the shortest path
         int next_i = -1;
         float mindist = numeric_limits<float>::max();
         for (int i = 0; i < int(vColor.size()); i++)
         {
             if (vColor[i] == WHITE && mindist > vDist[i])
-            {
+            { // if the city is white and the distance is less than the minimum distance, update the minimum distance
                 next_i = i;
                 mindist = vDist[i];
             }
@@ -539,11 +539,12 @@ void dijkstra_route(string city_from, string city_to, vector<city> &vertex_table
 
         vColor[i] = BLACK;
 
+        // if the city is the destination, break
         if (i == index_to)
             break;
 
         for (int j : edge_table[i])
-        {
+        { // iterate through the cities and update the distance
             float wij = mode == 0 ? dist_table(vertex_table[i].get_index(), vertex_table[j].get_index()) : time_table(vertex_table[i].get_index(), vertex_table[j].get_index());
 
             if (vColor[j] == BLACK)
